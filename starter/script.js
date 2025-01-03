@@ -193,5 +193,145 @@
 //     activateDot(curSlide);
 //   }
 // });
-const test = ['test1', 20];
-console.log(test);
+const mIntoKm = function (m) {
+  return m * 1.6;
+};
+const kmIntoM = function (km) {
+  return km / 1.6;
+};
+
+const distanceConverter = function (num, distance) {
+  if (distance === 'm') {
+    return mIntoKm(num);
+  } else if (distance === 'km') {
+    return kmIntoM(num);
+  } else {
+    console.log('nepoznata distanca');
+  }
+};
+console.log(distanceConverter(100, 'km'));
+console.log(distanceConverter(30, 'm'));
+console.log(distanceConverter(12312, 'mr'));
+
+const calculateTicketPrice = function (userYears) {
+  const price = userYears <= 15 ? 50 : 70;
+  return `cena karte je ${price}$ za korisnika koji ima ${userYears} godina`;
+};
+console.log(calculateTicketPrice(20));
+console.log(calculateTicketPrice(15));
+console.log(calculateTicketPrice(5));
+console.log(calculateTicketPrice(55));
+
+const isEmptyString = function (string) {
+  return string.length === 0 ? true : false;
+};
+console.log(isEmptyString(''));
+console.log(isEmptyString('ewewew'));
+console.log(isEmptyString('e'));
+console.log(isEmptyString(''));
+
+const isEven = function (num) {
+  return num % 2 === 0 ? 'paran' : 'neparan';
+};
+console.log(isEven(2));
+console.log(isEven(5));
+console.log(isEven(23324));
+console.log(isEven(25779));
+console.log(isEven(223125));
+
+let firstName = 'marko';
+let lastName = 'markovic';
+let age = 32;
+let salary = 3000;
+let yearWhenEmployed = 2024;
+let lastYearOfSalary = 2020;
+let country = 'Srbija';
+let street = 'Petra petrovica 25';
+let phone = '069123456';
+
+const getinfo = function () {
+  return `${firstName} ${lastName} ima ${age} godina 
+    i ima platu $${salary}. Zaposlen je ${yearWhenEmployed} godine 
+    i dobio je poslednju platu ${lastYearOfSalary} godine,
+    iz ${country} je, ${street}, kontrakt: ${phone}`;
+};
+console.log(getinfo());
+
+const calculateWorkYears = function (firstYear, secondYear) {
+  return `${firstName} je bio zaposlen ${firstYear - secondYear} godina`;
+};
+console.log(calculateWorkYears(yearWhenEmployed, lastYearOfSalary));
+
+const calculateYearsUntilRetreat = function (num) {
+  return `ostalo mu je do penzije jos ${65 - num} godina.`;
+};
+console.log(calculateYearsUntilRetreat(age));
+
+const getSalary = function () {
+  return salary;
+};
+const setSalary = function (newSalary) {
+  return (salary = newSalary);
+};
+console.log(getSalary());
+console.log(setSalary(4500));
+console.log(getSalary());
+
+const CalculateRaise = function () {
+  return salary * 0.15;
+};
+console.log(CalculateRaise());
+
+const employee = {
+  firstName: 'marko',
+  lastName: 'markovic',
+  age: 32,
+  salary: 3000,
+  yearWhenEmployed: 2024,
+  lastYearOfSalary: 2020,
+  country: 'Srbija',
+  street: 'Petra petrovica 25',
+  phone: '069123456',
+};
+
+console.log(`${employee.age} uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu`);
+
+const employeegetinfo = function () {
+  return `${employee.firstName} ${employee.lastName} ima ${employee.age} godina 
+    i ima platu $${employee.salary}. Zaposlen je ${employee.yearWhenEmployed} godine 
+    i dobio je poslednju platu ${employee.lastYearOfSalary} godine,
+    iz ${employee.country} je, ${employee.street}, kontrakt: ${employee.phone}`;
+};
+console.log(employeegetinfo());
+
+const employeecalculateWorkYears = function (firstYear, secondYear) {
+  return `${employee.firstName} je bio zaposlen ${
+    firstYear - secondYear
+  } godina`;
+};
+console.log(
+  employeecalculateWorkYears(
+    employee.yearWhenEmployed,
+    employee.lastYearOfSalary
+  )
+);
+
+const employeecalculateYearsUntilRetreat = function (num) {
+  return `ostalo mu je do penzije jos ${65 - num} godina.`;
+};
+console.log(employeecalculateYearsUntilRetreat(age));
+
+const employeegetSalary = function () {
+  return employee.salary;
+};
+const employeesetSalary = function (newSalary) {
+  return (employee.salary = newSalary);
+};
+console.log(employeegetSalary());
+console.log(employeesetSalary(4500));
+console.log(employeegetSalary());
+
+const employeeCalculateRaise = function () {
+  return employee.salary * 0.15;
+};
+console.log(employeeCalculateRaise());
