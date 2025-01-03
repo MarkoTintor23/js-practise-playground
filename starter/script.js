@@ -335,3 +335,83 @@ const employeeCalculateRaise = function () {
   return employee.salary * 0.15;
 };
 console.log(employeeCalculateRaise());
+
+const monster = {
+  name: 'dragon',
+  health: 100,
+  energy: 99,
+  level: 12,
+  experience: 30,
+  speed: 250,
+  attack: 54,
+  movement: 'walking',
+  fly: function () {
+    if (this.movement === 'walking') {
+      this.movement = 'flying';
+      this.speed += 50;
+      console.log(`${this.name} is now flying current speed is ${this.speed}`);
+    } else if (this.movement === 'flying') {
+      console.log('monster is already flying');
+    }
+  },
+  walk: function () {
+    if (this.movement !== 'walking') {
+      this.movement = 'walking';
+      this.speed -= 50;
+      console.log(`${this.name} is now walking speed is ${this.speed}`);
+    } else if (this.movement === 'walking') {
+      console.log('monster is already walking');
+    }
+  },
+  attack: function (n) {
+    if (this.energy < 0) {
+      console.log('dont have enough energy to attack!');
+      return;
+    } else if (this.energy > n) {
+      this.experience += 50;
+      console.log('monster attacked with success');
+    } else {
+      this.energy -= 70;
+      this.health -= 50;
+      console.log('monster failed to attack');
+    }
+    this.energy -= 30;
+  },
+  heal: function () {
+    this.energy += 100;
+    // this.health += 100;
+  },
+  checkStats: function () {
+    if (this.health <= 0) {
+      console.log('GAME OVER');
+      return;
+    }
+    if (this.experience >= 100) {
+      const extraExp = this.experience - 100;
+      this.level++;
+      this.experience = extraExp;
+    }
+  },
+};
+
+// console.log(`${monster.name} health: ${monster.health}
+//   energy: ${monster.energy} level: ${monster.level} experience: ${monster.experience}
+//    speed: ${monster.speed} attack: ${monster.attack} movement: ${monster.movement}
+//    `);
+console.log(JSON.stringify(monster, null, 2));
+monster.attack(7);
+monster.checkStats();
+monster.heal();
+console.log(JSON.stringify(monster, null, 2));
+monster.attack(8);
+monster.checkStats();
+
+console.log(JSON.stringify(monster, null, 2));
+monster.attack(5);
+monster.checkStats();
+
+console.log(JSON.stringify(monster, null, 2));
+monster.attack(4);
+monster.checkStats();
+
+console.log(JSON.stringify(monster, null, 2));
