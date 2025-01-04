@@ -415,3 +415,72 @@ monster.attack(4);
 monster.checkStats();
 
 console.log(JSON.stringify(monster, null, 2));
+
+let sum = 0;
+for (let i = 0; i <= 10; i++) {
+  sum += i;
+}
+console.log(sum);
+
+for (let i = 0; i <= 20; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+
+const objectObject = [
+  {
+    id: 1,
+    name: 'Strahinja',
+  },
+  {
+    id: 2,
+    name: 'Milica',
+  },
+  {
+    id: 3,
+    name: 'Nemanja',
+  },
+  {
+    id: 4,
+    name: 'Nikola',
+  },
+];
+
+for (let names of objectObject) {
+  console.log(`${names.name}`);
+}
+
+const unazad = function (str) {
+  let reverse = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    reverse += str[i];
+  }
+  return reverse;
+};
+console.log(unazad('marko'));
+
+const findBiggestNum = function (arr) {
+  let bigest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > bigest) {
+      bigest = arr[i];
+    }
+  }
+  return bigest;
+};
+const mali = [1, 3, 6, 8, 98, 23, 43];
+console.log(findBiggestNum(mali));
+
+const spajanje = function (arr) {
+  let prvi = arr.join(' ');
+  return prvi;
+};
+console.log(spajanje(['marko', 'nema', 'pojma', 'programiranje']));
+
+const findIndex = function (arr, num) {
+  return arr.indexOf(num);
+};
+
+const array22 = [20, 34, 56, 78, 90, 33, 455, 677];
+console.log(findIndex(array22, 90));
