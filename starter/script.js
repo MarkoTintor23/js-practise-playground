@@ -485,44 +485,135 @@
 // const array22 = [20, 34, 56, 78, 90, 33, 455, 677];
 // console.log(findIndex(array22, 90));
 
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
+
+// const jonas = new Person('Jonas', 1991);
+// console.log(jonas);
+
+// const matilda = new Person('Matilda', 1990);
+// const jack = new Person('Jack', 1999);
+// console.log(matilda);
+// console.log(jack);
+
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
+
+// matilda.calcAge();
+
+// const Car = function (speed, make) {
+//   this.speed = speed;
+//   this.make = make;
+// };
+
+// const car1 = new Car(120, 'BMW');
+// const car2 = new Car(95, 'mercedes');
+// console.log(car1, car2);
+
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+// };
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+// };
+
+// car1.accelerate();
+// car1.brake();
+// car2.accelerate();
+// car2.brake();
+// console.log(car1.speed);
+// console.log(car2.speed);
+
+class PersonCL {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this.fullName;
+  }
+}
+
+const jessica = new PersonCL('Jessica Davis', 1996);
+console.log(jessica);
+
+PersonCL.prototype.greet = function () {
+  console.log(`hey ${this.firstName}`);
 };
 
-const jonas = new Person('Jonas', 1991);
-console.log(jonas);
+jessica.greet();
+console.log(jessica.age);
 
-const matilda = new Person('Matilda', 1990);
-const jack = new Person('Jack', 1999);
-console.log(matilda);
-console.log(jack);
+const account = {
+  owner: 'jonas',
+  movements: [200, 530, 120, 300],
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+console.log(account.latest);
+
+account.latest = 50;
+console.log(account.movements);
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
 };
 
-matilda.calcAge();
+const steven = Object.create(PersonProto);
+steven.name = 'steven';
+steven.birthYear = 2002;
+steven.calcAge();
 
-const Car = function (speed, make) {
-  this.speed = speed;
-  this.make = make;
-};
+class CarCL {
+  constructor(name, speed) {
+    this.name = name;
+    this.speed = speed;
+  }
 
-const car1 = new Car(120, 'BMW');
-const car2 = new Car(95, 'mercedes');
-console.log(car1, car2);
+  accelerate() {
+    this.speed += 10;
+  }
+  brake() {
+    this.speed -= 5;
+  }
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-};
-Car.prototype.brake = function () {
-  this.speed -= 5;
-};
+  get speedUS() {
+    return this.speed / 1.6;
+  }
 
-car1.accelerate();
-car1.brake();
-car2.accelerate();
-car2.brake();
-console.log(car1.speed);
-console.log(car2.speed);
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+const ford = new CarCL('ford', 120);
+
+console.log(ford);
+console.log(ford.speedUS);
+ford.accelerate();
+console.log(ford);
