@@ -527,7 +527,123 @@
 // console.log(car1.speed);
 // console.log(car2.speed);
 
-class PersonCL {
+// const jessica = new PersonCL('Jessica Davis', 1996);
+// console.log(jessica);
+
+// PersonCL.prototype.greet = function () {
+//   console.log(`hey ${this.firstName}`);
+// };
+
+// jessica.greet();
+// console.log(jessica.age);
+
+// const account = {
+//   owner: 'jonas',
+//   movements: [200, 530, 120, 300],
+
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+// console.log(account.latest);
+
+// account.latest = 50;
+// console.log(account.movements);
+
+// const PersonProto = {
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   },
+// };
+
+// const steven = Object.create(PersonProto);
+// steven.name = 'steven';
+// steven.birthYear = 2002;
+// steven.calcAge();
+
+// class CarCL {
+//   constructor(name, speed) {
+//     this.name = name;
+//     this.speed = speed;
+//   }
+
+//   accelerate() {
+//     this.speed += 10;
+//   }
+//   brake() {
+//     this.speed -= 5;
+//   }
+
+//   get speedUS() {
+//     return this.speed / 1.6;
+//   }
+
+//   set speedUS(speed) {
+//     this.speed = speed * 1.6;
+//   }
+// }
+
+// const ford = new CarCL('ford', 120);
+
+// console.log(ford);
+// console.log(ford.speedUS);
+// ford.accelerate();
+// console.log(ford);
+
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+// };
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
+
+// const Student = function (firstName, birthYear, course) {
+//   Person.call(this, firstName, birthYear);
+//   this.course = course;
+// };
+
+// Student.prototype = Object.create(Person.prototype);
+
+// Student.prototype.introduce = function () {
+//   console.log(`My name is ${this.firstName} and i am stdying ${this.course}`);
+// };
+
+// const mike = new Student('Mike', 2020, 'computer science');
+// console.log(mike);
+// mike.introduce();
+// mike.calcAge();
+
+// const Ev = function (name, speed, charge) {
+//   this.name = name;
+//   this.speed = speed;
+//   this.charge = charge;
+// };
+
+// Ev.prototype = Object.create(CarCL.prototype);
+
+// Ev.prototype.chargeBattery = function (chargeTo) {
+//   this.charge = chargeTo;
+// };
+
+// Ev.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge --;
+//   console.log(
+//     `${this.name} going at ${this.speed}, with a charge of ${this.charge} %`
+//   );
+// };
+
+// const tesla = new Ev('tesla', 120, 23);
+
+// console.log(tesla.chargeBattery(90));
+// console.log(tesla.accelerate());
+// tesla.brake();
+class PersonCl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
     this.birthYear = birthYear;
@@ -551,69 +667,17 @@ class PersonCL {
   }
 }
 
-const jessica = new PersonCL('Jessica Davis', 1996);
-console.log(jessica);
-
-PersonCL.prototype.greet = function () {
-  console.log(`hey ${this.firstName}`);
-};
-
-jessica.greet();
-console.log(jessica.age);
-
-const account = {
-  owner: 'jonas',
-  movements: [200, 530, 120, 300],
-
-  get latest() {
-    return this.movements.slice(-1).pop();
-  },
-
-  set latest(mov) {
-    this.movements.push(mov);
-  },
-};
-console.log(account.latest);
-
-account.latest = 50;
-console.log(account.movements);
-
-const PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
-};
-
-const steven = Object.create(PersonProto);
-steven.name = 'steven';
-steven.birthYear = 2002;
-steven.calcAge();
-
-class CarCL {
-  constructor(name, speed) {
-    this.name = name;
-    this.speed = speed;
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    super(fullName, birthYear);
+    this.course = course;
   }
 
-  accelerate() {
-    this.speed += 10;
-  }
-  brake() {
-    this.speed -= 5;
-  }
-
-  get speedUS() {
-    return this.speed / 1.6;
-  }
-
-  set speedUS(speed) {
-    this.speed = speed * 1.6;
+  introduce() {
+    console.log(`My name is ${this._fullName} and i am stdying ${this.course}`);
   }
 }
 
-const ford = new CarCL('ford', 120);
-
-console.log(ford);
-console.log(ford.speedUS);
-ford.accelerate();
-console.log(ford);
+const martha = new StudentCl('Martha Jones', 2012, 'computer science');
+martha.introduce();
+martha.calcAge();
