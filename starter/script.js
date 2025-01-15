@@ -643,41 +643,102 @@
 // console.log(tesla.chargeBattery(90));
 // console.log(tesla.accelerate());
 // tesla.brake();
-class PersonCl {
-  constructor(fullName, birthYear) {
-    this.fullName = fullName;
-    this.birthYear = birthYear;
-  }
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
 
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  }
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   }
 
-  get age() {
-    return 2037 - this.birthYear;
-  }
+//   get age() {
+//     return 2037 - this.birthYear;
+//   }
 
-  set fullName(name) {
-    if (name.includes(' ')) this._fullName = name;
-    else alert(`${name} is not a full name`);
-  }
+//   set fullName(name) {
+//     if (name.includes(' ')) this._fullName = name;
+//     else alert(`${name} is not a full name`);
+//   }
 
-  get fullName() {
-    return this.fullName;
-  }
-}
+//   get fullName() {
+//     return this.fullName;
+//   }
+// }
 
-class StudentCl extends PersonCl {
-  constructor(fullName, birthYear, course) {
-    super(fullName, birthYear);
-    this.course = course;
-  }
+// class StudentCl extends PersonCl {
+//   constructor(fullName, birthYear, course) {
+//     super(fullName, birthYear);
+//     this.course = course;
+//   }
 
-  introduce() {
-    console.log(`My name is ${this._fullName} and i am stdying ${this.course}`);
-  }
-}
+//   introduce() {
+//     console.log(`My name is ${this._fullName} and i am stdying ${this.course}`);
+//   }
+// }
 
-const martha = new StudentCl('Martha Jones', 2012, 'computer science');
-martha.introduce();
-martha.calcAge();
+// const martha = new StudentCl('Martha Jones', 2012, 'computer science');
+// martha.introduce();
+// martha.calcAge();
+
+// function changeElement(arr, index, newElement) {
+//   arr[index] = newElement;
+//   return arr;
+// }
+// console.log(changeElement([1, 2, 3], 0, 9));
+
+// let newArr = [];
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i].length > 5) {
+//     newArr.push(arr[i]);
+//   }
+// }
+// console.log(newArr);
+
+// let arr = inp.split(', ').map(Number); // Don't change this line
+
+// let newArr = [];
+// arr.forEach((num, index) => {
+//   if (num < 50 || num % 5 === 0) {
+//     newArr.push(num);
+//   }
+// });
+// console.log(newArr);
+
+// function countVowels(str) {
+//   let count = 0;
+//   let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//   for (let char of str) {
+//     if (vowels.includes(char)) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// let arr = inp.split(', ').map(Number);
+// if (arr.length % 2 === 0) {
+//   let arrMid = arr.slice(
+//     Math.floor(arr.length / 2 - 1),
+//     Math.floor(arr.length / 2 + 1)
+//   );
+//   console.log(arrMid);
+// } else {
+//   let arrMid = arr.slice(
+//     Math.floor(arr.length / 2 - 1),
+//     Math.floor(arr.length / 2 + 2)
+//   );
+//   console.log(arrMid);
+// }
+
+// let numbers = [1, 2, 3, 4, 5];
+
+// console.log(numbers.concat([6, 7, 8]));
+
+// console.log(numbers.concat([6, 7, 8]).join(','));
+
+// console.log(numbers.slice(0, 3));
+
+// numbers.splice(1, 1, 99);
+// console.log(numbers);
