@@ -742,3 +742,26 @@
 
 // numbers.splice(1, 1, 99);
 // console.log(numbers);
+// class Observer {
+//   ...
+// }
+
+// const observer = new Observer();
+
+// const firstFunction = () => console.log('First Function!');
+// const secondFunction = () => console.log('Second Function!');
+// const thirdFunction = () => console.log('Third Function!');
+
+// const firstFuncToken = observer.subscribe(firstFunction, 'firstTwoFuncs');
+// const seconfFuncToken = observer.subscribe(secondFunction, 'firstTwoFuncs');
+
+// observer.subscribe(thirdFunction, 'thirdFunc');
+
+// observer.execute('firstTwoFuncs');
+// // First Function! Second Function!
+// observer.execute('thirdFunc');
+// // Third Function!
+
+// observer.unsubscribe('firstTwoFuncs', firstFuncToken);
+// observer.execute('firstTwoFuncs');
+// // Second Function!
