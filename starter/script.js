@@ -801,3 +801,58 @@
 //     this.breed = breed;
 //   }
 // }
+
+class Book {
+  constructor(title, author, year = '1990') {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+  }
+
+  getSummery() {
+    console.log(`${this.title} published by ${this.author} in ${this.year}`);
+  }
+}
+
+const book1 = new Book('Harry Potter', 'Some Woman', 2003);
+const book2 = new Book('Rich dad poor dad', 'some guy');
+
+book1.getSummery();
+book2.getSummery();
+
+class Shape {
+  constructor(name) {
+    this.name = name;
+  }
+
+  describe() {
+    return `This shape is called ${this.name}`;
+  }
+}
+
+class Circle extends Shape {
+  constructor(name, radius) {
+    super(name);
+    this.radius = radius;
+  }
+
+  getArea() {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+
+const shape1 = new Shape('cube');
+const circle1 = new Circle('Circle', 5);
+
+console.log(circle1.describe());
+
+class Utility {
+  static convertToUpperCase(str) {
+    return str.toUpperCase();
+  }
+}
+
+const input = 'hello world';
+const result = Utility.convertToUpperCase(input);
+
+console.log(result);
