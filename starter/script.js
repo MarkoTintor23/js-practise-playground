@@ -765,3 +765,39 @@
 // observer.unsubscribe('firstTwoFuncs', firstFuncToken);
 // observer.execute('firstTwoFuncs');
 // // Second Function!
+
+// class Person {
+//   constructor(firstName, lastName, age) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//   }
+
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+// }
+
+// const mare = new Person('Marko', 'Markovic', 25);
+// const dzoni = new Person('Nikola', 'Nikolic', 45);
+
+// console.log(mare.getFullName());
+// console.log(dzoni.getFullName());
+
+// class Animal {
+//   constructor(name, sound) {
+//     this.name = name;
+//     this.sound = sound;
+//   }
+
+//   makeSound() {
+//     console.log(this.sound);
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(breed) {
+//     super(name, sound);
+//     this.breed = breed;
+//   }
+// }
