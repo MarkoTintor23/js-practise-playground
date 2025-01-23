@@ -802,57 +802,69 @@
 //   }
 // }
 
-class Book {
-  constructor(title, author, year = '1990') {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-  }
+// class BankAccount {
+//   #balance;
 
-  getSummery() {
-    console.log(`${this.title} published by ${this.author} in ${this.year}`);
+//   constructor() {
+//     this.#balance = 0;
+//   }
+
+//   deposit(amount) {
+//     if (amount > 0) {
+//       this.#balance += amount;
+//       console.log(`Deposited: $${amount}. New Balance: $${this.#balance}`);
+//     } else {
+//       console.log('Deposit amount must be positive.');
+//     }
+//   }
+
+//   withdraw(amount) {
+//     if (amount > this.#balance) {
+//       console.log('Insufficient funds.');
+//     } else if (amount > 0) {
+//       this.#balance -= amount;
+//       console.log(`Withdrew: $${amount}. New Balance: $${this.#balance}`);
+//     } else {
+//       console.log('Withdrawal amount must be positive.');
+//     }
+//   }
+
+//   getBalance() {
+//     return this.#balance;
+//   }
+// }
+
+class BankAccount {
+  constructor() {
+    let balance = 0;
+
+    this.deposit = amount => {
+      if (amount > 0) {
+        balance += amount;
+        console.log(`Deposited: $${amount}. New Balance: $${balance}`);
+      } else {
+        console.log('Deposit amount must be positive.');
+      }
+    };
+
+    this.withdraw = amount => {
+      if (amount > balance) {
+        console.log('Insufficient funds.');
+      } else if (amount > 0) {
+        balance -= amount;
+        console.log(`Withdrew: $${amount}. New Balance: $${balance}`);
+      } else {
+        console.log('Withdrawal amount must be positive.');
+      }
+    };
+
+    this.getBalance = () => balance;
   }
 }
 
-const book1 = new Book('Harry Potter', 'Some Woman', 2003);
-const book2 = new Book('Rich dad poor dad', 'some guy');
-
-book1.getSummery();
-book2.getSummery();
-
-class Shape {
-  constructor(name) {
-    this.name = name;
-  }
-
-  describe() {
-    return `This shape is called ${this.name}`;
-  }
-}
-
-class Circle extends Shape {
-  constructor(name, radius) {
-    super(name);
-    this.radius = radius;
-  }
-
-  getArea() {
-    return Math.PI * this.radius * this.radius;
-  }
-}
-
-const shape1 = new Shape('cube');
-const circle1 = new Circle('Circle', 5);
-
-console.log(circle1.describe());
-
-class Utility {
-  static convertToUpperCase(str) {
-    return str.toUpperCase();
-  }
-}
-
-const input = 'hello world';
-const result = Utility.convertToUpperCase(input);
-
-console.log(result);
+const account = new BankAccount();
+account.deposit(100);
+account.withdraw(50);
+console.log(`Balance: $${account.getBalance()}`);
+account.withdraw(60);
+console.log(account.balance);
