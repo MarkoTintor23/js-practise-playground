@@ -834,37 +834,47 @@
 //   }
 // }
 
-class BankAccount {
-  constructor() {
-    let balance = 0;
+// class BankAccount {
+//   constructor() {
+//     let balance = 0;
 
-    this.deposit = amount => {
-      if (amount > 0) {
-        balance += amount;
-        console.log(`Deposited: $${amount}. New Balance: $${balance}`);
-      } else {
-        console.log('Deposit amount must be positive.');
-      }
-    };
+//     this.deposit = amount => {
+//       if (amount > 0) {
+//         balance += amount;
+//         console.log(`Deposited: $${amount}. New Balance: $${balance}`);
+//       } else {
+//         console.log('Deposit amount must be positive.');
+//       }
+//     };
 
-    this.withdraw = amount => {
-      if (amount > balance) {
-        console.log('Insufficient funds.');
-      } else if (amount > 0) {
-        balance -= amount;
-        console.log(`Withdrew: $${amount}. New Balance: $${balance}`);
-      } else {
-        console.log('Withdrawal amount must be positive.');
-      }
-    };
+//     this.withdraw = amount => {
+//       if (amount > balance) {
+//         console.log('Insufficient funds.');
+//       } else if (amount > 0) {
+//         balance -= amount;
+//         console.log(`Withdrew: $${amount}. New Balance: $${balance}`);
+//       } else {
+//         console.log('Withdrawal amount must be positive.');
+//       }
+//     };
 
-    this.getBalance = () => balance;
+//     this.getBalance = () => balance;
+//   }
+// }
+
+// const account = new BankAccount();
+// account.deposit(100);
+// account.withdraw(50);
+// console.log(`Balance: $${account.getBalance()}`);
+// account.withdraw(60);
+// console.log(account.balance);
+
+function findOasis(locations, target) {
+  // Write code here
+  for (let i = 0; i < locations.length; i++) {
+    if (locations[i] === target) {
+      return i;
+    }
   }
+  return -1;
 }
-
-const account = new BankAccount();
-account.deposit(100);
-account.withdraw(50);
-console.log(`Balance: $${account.getBalance()}`);
-account.withdraw(60);
-console.log(account.balance);
