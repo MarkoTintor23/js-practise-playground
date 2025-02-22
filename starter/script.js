@@ -869,12 +869,30 @@
 // account.withdraw(60);
 // console.log(account.balance);
 
-function findOasis(locations, target) {
-  // Write code here
-  for (let i = 0; i < locations.length; i++) {
-    if (locations[i] === target) {
-      return i;
+// function findOasis(locations, target) {
+//   // Write code here
+//   for (let i = 0; i < locations.length; i++) {
+//     if (locations[i] === target) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+function countRecurringPatterns(patterns) {
+  const patternCounts = {};
+  let recurringCount = 0;
+
+  for (const pattern of patterns) {
+    if (patternCounts[pattern]) {
+      patternCounts[pattern]++;
+    } else {
+      patternCounts[pattern] = 1;
     }
   }
-  return -1;
+
+  for (const count of Object.values(patternCounts)) {
+    if (count > 1) {
+      recurringCount++;
+    }
+  }
 }
