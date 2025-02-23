@@ -878,21 +878,103 @@
 //   }
 //   return -1;
 // }
-function countRecurringPatterns(patterns) {
-  const patternCounts = {};
-  let recurringCount = 0;
+// function countRecurringPatterns(patterns) {
+//   const patternCounts = {};
+//   let recurringCount = 0;
 
-  for (const pattern of patterns) {
-    if (patternCounts[pattern]) {
-      patternCounts[pattern]++;
+//   for (const pattern of patterns) {
+//     if (patternCounts[pattern]) {
+//       patternCounts[pattern]++;
+//     } else {
+//       patternCounts[pattern] = 1;
+//     }
+//   }
+
+//   for (const count of Object.values(patternCounts)) {
+//     if (count > 1) {
+//       recurringCount++;
+//     }
+//   }
+// }
+
+function alternateCase(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 0) {
+      result += str[i].toUpperCase();
     } else {
-      patternCounts[pattern] = 1;
+      result += str[i].toLowerCase();
+    }
+  }
+  return result;
+}
+function stringWeaver(str1, str2) {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  let cleanStr1 = '';
+  let cleanStr2 = '';
+
+  for (let i = 0; i < str1.length; i++) {
+    if (!numbers.includes(str1[i])) {
+      cleanStr1 += str1[i];
     }
   }
 
-  for (const count of Object.values(patternCounts)) {
-    if (count > 1) {
-      recurringCount++;
+  for (let i = 0; i < str2.length; i++) {
+    if (!numbers.includes(str2[i])) {
+      cleanStr2 += str2[i];
     }
   }
+
+  let result = '';
+  let i = 0;
+
+  while (i < cleanStr1.length && i < cleanStr2.length) {
+    let char1 = cleanStr1[i];
+    if (vowels.includes(char1)) {
+      char1 = char1.toUpperCase();
+    }
+    result += char1;
+
+    if (vowels.includes(char2)) {
+      char2 = char2.toUpperCase();
+    }
+    result += char2;
+
+    i++;
+  }
+
+  let remaining =
+    cleanStr1.length > cleanStr2.length
+      ? cleanStr1.slice(i)
+      : cleanStr2.slice(i);
+  for (let j = 0; j < remaining.length; j++) {
+    let char = remaining[j];
+    if (vowels.includes(char)) {
+      char = char.toUpperCase();
+    }
+    result += char;
+  }
+
+  return result;
+}
+function combineMatrices(matrixA, matrixB, op) {
+  const rows = matrixA.length;
+  const cols = matrixA[0].length;
+  const result = [];
+
+  for (let r = 0; r < rows; r++) {
+    const rowArr = [];
+    for (let c = 0; c < cols; c++) {
+      if (op === '+') {
+        rowArr.push(matrixA[r][c] + matrixB[r][c]);
+      } else {
+        rowArr.push(matrixA[r][c] - matrixB[r][c]);
+      }
+    }
+    result.push(rowArr);
+  }
+
+  return result;
 }
