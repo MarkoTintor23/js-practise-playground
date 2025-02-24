@@ -897,84 +897,123 @@
 //   }
 // }
 
-function alternateCase(str) {
-  let result = '';
-  for (let i = 0; i < str.length; i++) {
-    if (i % 2 === 0) {
-      result += str[i].toUpperCase();
-    } else {
-      result += str[i].toLowerCase();
-    }
+// function alternateCase(str) {
+//   let result = '';
+//   for (let i = 0; i < str.length; i++) {
+//     if (i % 2 === 0) {
+//       result += str[i].toUpperCase();
+//     } else {
+//       result += str[i].toLowerCase();
+//     }
+//   }
+//   return result;
+// }
+// function stringWeaver(str1, str2) {
+//   const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//   const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+//   let cleanStr1 = '';
+//   let cleanStr2 = '';
+
+//   for (let i = 0; i < str1.length; i++) {
+//     if (!numbers.includes(str1[i])) {
+//       cleanStr1 += str1[i];
+//     }
+//   }
+
+//   for (let i = 0; i < str2.length; i++) {
+//     if (!numbers.includes(str2[i])) {
+//       cleanStr2 += str2[i];
+//     }
+//   }
+
+//   let result = '';
+//   let i = 0;
+
+//   while (i < cleanStr1.length && i < cleanStr2.length) {
+//     let char1 = cleanStr1[i];
+//     if (vowels.includes(char1)) {
+//       char1 = char1.toUpperCase();
+//     }
+//     result += char1;
+
+//     if (vowels.includes(char2)) {
+//       char2 = char2.toUpperCase();
+//     }
+//     result += char2;
+
+//     i++;
+//   }
+
+//   let remaining =
+//     cleanStr1.length > cleanStr2.length
+//       ? cleanStr1.slice(i)
+//       : cleanStr2.slice(i);
+//   for (let j = 0; j < remaining.length; j++) {
+//     let char = remaining[j];
+//     if (vowels.includes(char)) {
+//       char = char.toUpperCase();
+//     }
+//     result += char;
+//   }
+
+//   return result;
+// }
+// function combineMatrices(matrixA, matrixB, op) {
+//   const rows = matrixA.length;
+//   const cols = matrixA[0].length;
+//   const result = [];
+
+//   for (let r = 0; r < rows; r++) {
+//     const rowArr = [];
+//     for (let c = 0; c < cols; c++) {
+//       if (op === '+') {
+//         rowArr.push(matrixA[r][c] + matrixB[r][c]);
+//       } else {
+//         rowArr.push(matrixA[r][c] - matrixB[r][c]);
+//       }
+//     }
+//     result.push(rowArr);
+//   }
+
+//   return result;
+// }
+function printPatterns(matrix) {
+  const n = matrix.length;
+
+  // Main Diagonal
+  let mainDiagonal = [];
+  for (let i = 0; i < n; i++) {
+    mainDiagonal.push(matrix[i][i]);
   }
-  return result;
-}
-function stringWeaver(str1, str2) {
-  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  console.log('Main Diagonal:', mainDiagonal.join(' '));
 
-  let cleanStr1 = '';
-  let cleanStr2 = '';
-
-  for (let i = 0; i < str1.length; i++) {
-    if (!numbers.includes(str1[i])) {
-      cleanStr1 += str1[i];
-    }
+  // Anti-Diagonal
+  let antiDiagonal = [];
+  for (let i = 0; i < n; i++) {
+    antiDiagonal.push(matrix[i][n - 1 - i]);
   }
+  console.log('Anti-Diagonal:', antiDiagonal.join(' '));
 
-  for (let i = 0; i < str2.length; i++) {
-    if (!numbers.includes(str2[i])) {
-      cleanStr2 += str2[i];
-    }
+  // Top Border
+  let topBorder = matrix[0];
+  console.log('Top Border:', topBorder.join(' '));
+
+  // Bottom Border
+  let bottomBorder = matrix[n - 1];
+  console.log('Bottom Border:', bottomBorder.join(' '));
+
+  // Left Border
+  let leftBorder = [];
+  for (let i = 0; i < n; i++) {
+    leftBorder.push(matrix[i][0]);
   }
+  console.log('Left Border:', leftBorder.join(' '));
 
-  let result = '';
-  let i = 0;
-
-  while (i < cleanStr1.length && i < cleanStr2.length) {
-    let char1 = cleanStr1[i];
-    if (vowels.includes(char1)) {
-      char1 = char1.toUpperCase();
-    }
-    result += char1;
-
-    if (vowels.includes(char2)) {
-      char2 = char2.toUpperCase();
-    }
-    result += char2;
-
-    i++;
+  // Right Border
+  let rightBorder = [];
+  for (let i = 0; i < n; i++) {
+    rightBorder.push(matrix[i][n - 1]);
   }
-
-  let remaining =
-    cleanStr1.length > cleanStr2.length
-      ? cleanStr1.slice(i)
-      : cleanStr2.slice(i);
-  for (let j = 0; j < remaining.length; j++) {
-    let char = remaining[j];
-    if (vowels.includes(char)) {
-      char = char.toUpperCase();
-    }
-    result += char;
-  }
-
-  return result;
-}
-function combineMatrices(matrixA, matrixB, op) {
-  const rows = matrixA.length;
-  const cols = matrixA[0].length;
-  const result = [];
-
-  for (let r = 0; r < rows; r++) {
-    const rowArr = [];
-    for (let c = 0; c < cols; c++) {
-      if (op === '+') {
-        rowArr.push(matrixA[r][c] + matrixB[r][c]);
-      } else {
-        rowArr.push(matrixA[r][c] - matrixB[r][c]);
-      }
-    }
-    result.push(rowArr);
-  }
-
-  return result;
+  console.log('Right Border:', rightBorder.join(' '));
 }
